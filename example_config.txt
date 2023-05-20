@@ -1,0 +1,6 @@
+name: example config
+
+# this is an example of a comment
+string example: text is automatically interpreted as a string
+numeric array example: [5, 4, 3, 2, 1]
+string array example: [this, is, a, string, array]
