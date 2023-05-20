@@ -8,6 +8,8 @@ The simple config files are assumed to be ordinary text (`.txt`) files. The synt
 - configuration data can be stored as key/value pairs, delimitted using a colon (`:`)
 - keys must be text
 - values can be text, numbers, list of text, or a list of numbers
+	- lists are defined using square brackets (`[ ]`)
+	- list elements are delimited using commas (`,`)
 - comments are started with the pound symbol (`#`)
 
 > **NOTE:** This simple config format does **_not_** support nested dictionaries.
