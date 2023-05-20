@@ -1,4 +1,4 @@
-# Simple Configuration File Format for MATLAB
+# Simple Configuration File Format for MATLAB [![View Simple Configuration File Format for MATLAB on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/129884-simple-configuration-file-format-for-matlab)
 
 Simple text-based file format for loading dictionary-like configuration data into MATLAB.
 
