@@ -1,6 +1,6 @@
 %==========================================================================
 %
-% load_config  Loads a simple configuration file.
+% load_config  Loads a simple configuration file into a dictionary.
 %
 %   config = load_config(file_path)
 %
@@ -49,14 +49,20 @@ function config = load_config(file_path)
     % fields from chars to strings
     for i = 1:length(fields)
         
-        % extracts values
+        % extracts key and value
+        key = keys.(fields{i});
         value = values.(fields{i});
         
         % converts any string values to char arrays
         value = convertStringsToChars(value);
         
+        % handles empty config
+        if isempty(value)
+            key = key(1:end-1);
+            value = [];
+            
         % handles array inputs
-        if strcmpi(value(1),'[')
+        elseif strcmpi(value(1),'[')
             
             % removes any extra whitespace after commas
             value = strrep(convertStringsToChars(value),', ',',');
@@ -74,7 +80,7 @@ function config = load_config(file_path)
         end
         
         % stores value in dictionary
-        config{keys.(fields{i})} = value;
+        config{key} = value;
         
     end
     
