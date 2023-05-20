@@ -14,8 +14,8 @@
 % ------
 % INPUT:
 % ------
-%   file_path   - (1×1 string) relative or absolute file path (with or
-%                 without extension)
+%   file_path   - (char arary or 1×1 string) relative or absolute file path
+%                 (with or without extension)
 %
 % -------
 % OUTPUT:
@@ -66,7 +66,7 @@ function config = load_config(file_path)
                 
             % otherwise converts to a string array
             else
-                value = string(split(value(2:end-1),','));
+                value = string(split(value(2:end-1),',')).';
                 
             end
             
