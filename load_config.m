@@ -2,7 +2,7 @@
 %
 % load_config  Loads a simple configuration file.
 %
-%   config = load_simple_config(file_path)
+%   config = load_config(file_path)
 %
 % Copyright © 2023 Tamas Kis
 % Last Update: 2023-05-20
@@ -14,7 +14,7 @@
 % ------
 % INPUT:
 % ------
-%   file_path   - (char arary or 1×1 string) relative or absolute file path
+%   file_path   - (char array or 1×1 string) relative or absolute file path
 %                 (with or without extension)
 %
 % -------
@@ -25,10 +25,11 @@
 %
 %==========================================================================
 function config = load_config(file_path)
-    
+   
+    % sets options for reading in config file as a table
     opts = delimitedTextImportOptions('CommentStyle','# ','delimiter',...
         ': ','VariableNamingRule','preserve');
-
+    
     % reads in config as a table, rotates its orientation, converts it
     % to a struct, and removes extra row storing original variable names
     config_struct = rmfield(table2struct(rows2vars(readtable(file_path,...
