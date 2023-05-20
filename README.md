@@ -10,7 +10,7 @@ The simple config files are assumed to be ordinary text (`.txt`) files. The synt
 - values can be text, numbers, list of text, or a list of numbers
 - comments are started with the pound symbol (`#`)
 
->> **NOTE:** This simple config format does **_not_** support nested dictionaries.
+> **NOTE:** This simple config format does **_not_** support nested dictionaries.
 
 
 ### Example
