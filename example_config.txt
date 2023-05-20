@@ -1,6 +1,7 @@
-name: example config
+# satellite name
+name: example satellite
 
-# this is an example of a comment
-string example: text is automatically interpreted as a string
-numeric array example: [5, 4, 3, 2, 1]
-string array example: [this, is, a, string, array]
+# satellite properties
+mass [kg]: 50
+area of each face [m^2]: [2, 2, 3, 1.5, 5, 5]
+label for each face: [face A, face B, face C, face D, face E, face F]
