@@ -11,6 +11,7 @@ The simple config files are assumed to be ordinary text (`.txt`) files. The synt
 	- lists are defined using square brackets (`[ ]`)
 	- list elements are delimited using commas (`,`)
 	- booleans can be specified as `false`, `False`, `true`, or `True`
+	- empty configs can be left blank (they are loaded in as empty arrays)
 - comments are started with the pound symbol (`#`)
 
 > **NOTE:** This simple config format does **_not_** support nested dictionaries.
@@ -24,10 +25,11 @@ name: example satellite
 
 # satellite properties
 mass [kg]: 50
+drag coefficient:
 area of each face [m^2]: [2, 2, 3, 1.5, 5, 5]
 label for each face: [face A, face B, face C, face D, face E, face F]
 
-% control system settings
+# control system settings
 actuators active: false
 sensors active: true
 ```
