@@ -25,9 +25,9 @@
 %
 %==========================================================================
 function config = load_config(file_path)
-   
+    
     % sets options for reading in config file as a table
-    opts = delimitedTextImportOptions('CommentStyle','# ','delimiter',...
+    opts = delimitedTextImportOptions('CommentStyle','#','delimiter',...
         ': ','VariableNamingRule','preserve');
     
     % reads in config as a table, rotates its orientation, converts it
@@ -56,25 +56,34 @@ function config = load_config(file_path)
         % converts any string values to char arrays
         value = convertStringsToChars(value);
         
-        % handles empty config
+        % empty config
         if isempty(value)
-            key = key(1:end-1);
+            if key(end) == ':'
+                key = key(1:end-1);
+            end
             value = [];
             
-        % handles array inputs
+        % logical (boolean) true config
+        elseif strcmpi(value,'false')
+            value = false;
+            
+        % logical (boolean) false config
+        elseif strcmpi(value,'true')
+            value = true;
+            
+        % array config
         elseif strcmpi(value(1),'[')
             
             % removes any extra whitespace after commas
-            value = strrep(convertStringsToChars(value),', ',',');
+            value = strrep(value,', ',',');
             
-            % converts to double array if value elements are numeric
-            if ~isempty(str2num(value(2)))
-                value = str2num(strrep(value(2:end-1),',',' '));
-                
-            % otherwise converts to a string array
-            else
-                value = string(split(value(2:end-1),',')).';
-                
+            % removes brackets and ensures the array is a string array
+            value = string(split(value(2:end-1),',')).';
+            
+            % converts to double or logical array if value elements are 
+            % numeric or logical
+            if ~isempty(str2num(value(1)))
+                value = str2num(convertStringsToChars(strjoin(value)));
             end
             
         end

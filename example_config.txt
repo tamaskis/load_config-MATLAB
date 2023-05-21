@@ -5,3 +5,7 @@ name: example satellite
 mass [kg]: 50
 area of each face [m^2]: [2, 2, 3, 1.5, 5, 5]
 label for each face: [face A, face B, face C, face D, face E, face F]
+
+% control system settings
+actuators active: false
+sensors active: true

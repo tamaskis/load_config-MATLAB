@@ -7,9 +7,10 @@ Simple text-based file format for loading dictionary-like configuration data int
 The simple config files are assumed to be ordinary text (`.txt`) files. The syntax of the files is designed to be very similar to the YAML syntax.
 - configuration data can be stored as key/value pairs, delimitted using a colon (`:`)
 - keys must be text
-- values can be text, numbers, list of text, or a list of numbers
+- values can be text, numbers, booleans, lists of text, lists of numbers, and lists of booleans
 	- lists are defined using square brackets (`[ ]`)
 	- list elements are delimited using commas (`,`)
+	- booleans can be specified as `false`, `False`, `true`, or `True`
 - comments are started with the pound symbol (`#`)
 
 > **NOTE:** This simple config format does **_not_** support nested dictionaries.
@@ -23,8 +24,12 @@ name: example satellite
 
 # satellite properties
 mass [kg]: 50
-area of each face of cubesat [m^2]: [2, 2, 3, 1.5, 5, 5]
-label for each face of cubesat: [face A, face B, face C, face D, face E, face F]
+area of each face [m^2]: [2, 2, 3, 1.5, 5, 5]
+label for each face: [face A, face B, face C, face D, face E, face F]
+
+% control system settings
+actuators active: false
+sensors active: true
 ```
 
 
@@ -37,13 +42,9 @@ A simple config file can be loaded into MATLAB using the `load_config` function.
 
 `config = load_config(file_path)`
 
-### Inputs
+### Description
 
-- **`file_path` (char array or 1×1 string):** relative or absolute file path (with or without extension)
-
-
-### Outputs
-- **`config` (1×1 dictionary (string --> cell)):** dictionary storing config data
+`config = load_config(file_path)` loads a simple config located at the file path (can be absolute or relative path, and with or without the `.txt` extension) specified by `file_path` into the `config` dictionary.
 
 
 ### Examples
