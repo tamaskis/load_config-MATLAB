@@ -45,8 +45,7 @@ function config = load_config(file_path)
     % initializes config dictionary to return
     config = dictionary;
     
-    % simplifies struct produces by table2struct, also converting all
-    % fields from chars to strings
+    % populates config dictionary
     for i = 1:length(fields)
         
         % extracts key and value
