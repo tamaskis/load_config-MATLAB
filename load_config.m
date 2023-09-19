@@ -15,7 +15,7 @@
 % INPUT:
 % ------
 %   file_path   - (char array or 1×1 string) relative or absolute file path
-%                 (with or without extension)
+%                 (with or without file extension)
 %
 % -------
 % OUTPUT:

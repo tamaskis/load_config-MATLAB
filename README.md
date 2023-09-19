@@ -1,4 +1,4 @@
-# Simple Configuration File Format for MATLAB [![View Simple Configuration File Format for MATLAB on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/129884-simple-configuration-file-format-for-matlab)
+# Simple Configuration File Format for MATLAB [![View Simple Configuration File Format for MATLAB on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/129884-simple-configuration-file-format-for-matlab) [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=tamaskis/load_config-MATLAB)
 
 Simple text-based file format for loading dictionary-like configuration data into MATLAB.
 
@@ -46,8 +46,13 @@ A simple config file can be loaded into MATLAB using the `load_config` function.
 
 ### Description
 
-`config = load_config(file_path)` loads a simple config located at the file path (can be absolute or relative path, and with or without the `.txt` extension) specified by `file_path` into the `config` dictionary.
+### Inputs
 
+- `file_path` (char array or 1×1 string) relative or absolute file path (with or without file extension)
+
+### Outputs
+
+- `config` (1×1 `dictionary (strings --> cell)`) dictionary storing config data
 
 ### Examples
 - See `EXAMPLES.mlx` or the "Examples" tab on the File Exchange page for examples.
