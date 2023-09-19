@@ -5,7 +5,7 @@
 %   config = load_config(file_path)
 %
 % Copyright © 2023 Tamas Kis
-% Last Update: 2023-05-20
+% Last Update: 2023-09-18
 % Website: https://tamaskis.github.io
 % Contact: tamas.a.kis@outlook.com
 %
@@ -15,7 +15,7 @@
 % INPUT:
 % ------
 %   file_path   - (char array or 1×1 string) relative or absolute file path
-%                 (with or without extension)
+%                 (with or without file extension)
 %
 % -------
 % OUTPUT:
@@ -45,7 +45,8 @@ function config = load_config(file_path)
     % initializes config dictionary to return
     config = dictionary;
     
-    % populates config dictionary
+    % simplifies struct produces by table2struct, also converting all
+    % fields from chars to strings
     for i = 1:length(fields)
         
         % extracts key and value
@@ -81,7 +82,7 @@ function config = load_config(file_path)
             
             % converts to double or logical array if value elements are 
             % numeric or logical
-            if ~isempty(str2num(value(1)))
+            if isnumeric(value(1)) || islogical(value(1))
                 value = str2num(convertStringsToChars(strjoin(value)));
             end
             
